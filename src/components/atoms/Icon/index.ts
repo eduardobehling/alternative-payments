@@ -1,1 +1,1 @@
-export { ChartIcon, UsersIcon } from "./Icon";
+export { AlertIcon, ChartIcon, GridIcon, TableIcon, UsersIcon } from "./Icon";
