@@ -1,67 +1,56 @@
-import { Button } from "@/components/atoms/Button";
-import { SearchInput } from "@/components/molecules/SearchInput";
-import { CharacterTable } from "@/components/organisms/CharacterTable";
-import type { Character } from "@/types/character";
+import Link from "next/link";
+import { Heading } from "@/components/atoms/Heading";
+import { ChartIcon, UsersIcon } from "@/components/atoms/Icon";
 import styles from "./page.module.css";
-
-const sampleCharacters: Character[] = [
-  {
-    id: "1",
-    name: "Rick Sanchez",
-    status: "Alive",
-    species: "Human",
-    type: "",
-    gender: "Male",
-    origin: { name: "Earth (C-137)" },
-    location: { name: "Citadel of Ricks" },
-    image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  },
-  {
-    id: "2",
-    name: "Morty Smith",
-    status: "Alive",
-    species: "Human",
-    type: "",
-    gender: "Male",
-    origin: { name: "unknown" },
-    location: { name: "Citadel of Ricks" },
-    image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-  },
-  {
-    id: "3",
-    name: "Summer Smith",
-    status: "Alive",
-    species: "Human",
-    type: "",
-    gender: "Female",
-    origin: { name: "Earth (Replacement Dimension)" },
-    location: { name: "Earth (Replacement Dimension)" },
-    image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-  },
-];
 
 export default function HomePage() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1>Header info</h1>
+          <Heading level="h1">Welcome to Rick and Morty Universe</Heading>
+          <p className={styles.description}>
+            Explore the vast multiverse of Rick and Morty through our
+            interactive platform. Discover characters, analyze data, and dive
+            deep into the fascinating world created by Dan Harmon and Justin
+            Roiland.
+          </p>
         </header>
 
-        <section className={styles.section}>
-          <div>
-            <SearchInput />
-          </div>
-          <div>
-            <Button>Search</Button>
-          </div>
-          <div>
-            <CharacterTable characters={sampleCharacters} />
-          </div>
+        <section className={styles.features}>
+          <Link href="/characters" className={styles.featureCard}>
+            <div className={styles.cardIcon}>
+              <UsersIcon size={48} />
+            </div>
+            <Heading level="h2" className={styles.cardTitle}>
+              Characters
+            </Heading>
+            <span className={styles.cardLink}>Explore Characters →</span>
+          </Link>
+
+          <Link href="/dashboard" className={styles.featureCard}>
+            <div className={styles.cardIcon}>
+              <ChartIcon size={48} />
+            </div>
+            <Heading level="h2" className={styles.cardTitle}>
+              Dashboard
+            </Heading>
+            <span className={styles.cardLink}>View Analytics →</span>
+          </Link>
         </section>
 
         <footer className={styles.footer}>
-          <p className={styles.footerText}>Footer Info</p>
+          <p className={styles.footerText}>
+            Developed by{" "}
+            <a
+              href="https://github.com/eduardobehling"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+            >
+              @eduardobehling
+            </a>
+          </p>
         </footer>
       </div>
     </main>
