@@ -1,1 +1,36 @@
-/* CharacterGrgidView styles */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  margin-bottom: var(--spacing-4);
+}
+
+.status {
+  display: inline-block;
+  padding: var(--spacing-2) var(--spacing-5);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.status.alive {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.status.dead {
+  background-color: var(--color-error-bg);
+  color: var(--color-error-text);
+}
+
+.status.unknown {
+  background-color: var(--color-unknown-bg);
+  color: var(--color-unknown-text);
+}
