@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Heading } from "@/components/atoms/Heading";
-import { ChartIcon, UsersIcon } from "@/components/atoms/Icon";
+import { ChartIcon, PaletteIcon, UsersIcon } from "@/components/atoms/Icon";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -36,6 +36,16 @@ export default function HomePage() {
               Dashboard
             </Heading>
             <span className={styles.cardLink}>View Analytics →</span>
+          </Link>
+
+          <Link href="/styleguide" className={styles.featureCard}>
+            <div className={styles.cardIcon}>
+              <PaletteIcon size={48} />
+            </div>
+            <Heading level="h2" className={styles.cardTitle}>
+              Styleguide
+            </Heading>
+            <span className={styles.cardLink}>View Styleguide →</span>
           </Link>
         </section>
 
