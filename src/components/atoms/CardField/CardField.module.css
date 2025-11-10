@@ -1,1 +1,53 @@
-/* CardField styles */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: var(--spacing-3) 0;
+  border-bottom: var(--card-border-width) solid var(--color-border-tertiary);
+}
+
+.field:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.value {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .field {
+    padding: var(--spacing-2) 0;
+  }
+
+  .label {
+    font-size: var(--font-size-sm);
+  }
+
+  .value {
+    font-size: var(--font-size-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .field {
+    padding: var(--spacing-2) 0;
+  }
+
+  .label {
+    font-size: var(--font-size-sm);
+  }
+
+  .value {
+    font-size: var(--font-size-base);
+  }
+}

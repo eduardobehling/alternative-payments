@@ -1,1 +1,39 @@
-/* CardGrid styles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--grid-min-column-width-md), 1fr)
+    );
+  gap: var(--grid-gap-lg);
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(var(--grid-min-column-width-sm), 1fr)
+      );
+    gap: var(--grid-gap-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--grid-gap-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: var(--grid-gap-sm);
+  }
+}
