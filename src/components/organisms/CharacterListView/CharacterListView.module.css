@@ -1,1 +1,63 @@
-/* CharacterListView styles */
+.tableWrapper {
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.characterImage {
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.status {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.status.alive {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.status.dead {
+  background-color: var(--color-error-bg);
+  color: var(--color-error-text);
+}
+
+.status.unknown {
+  background-color: var(--color-unknown-bg);
+  color: var(--color-unknown-text);
+}
+
+@media (max-width: 1024px) {
+  .table {
+    min-width: 800px;
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table {
+    min-width: 600px;
+  }
+}

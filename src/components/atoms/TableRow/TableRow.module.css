@@ -1,1 +1,21 @@
-/* TableRow styles */
+.header {
+  border-bottom: 2px solid var(--table-border-color);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  background-color: var(--table-header-bg);
+}
+
+.row {
+  transition: var(--transition-colors);
+}
+
+.row:not(.header):hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+@media (max-width: 768px) {
+  .row:not(.header):hover {
+    background-color: transparent;
+  }
+}
