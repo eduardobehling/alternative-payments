@@ -2,13 +2,13 @@ import Image from "next/image";
 import { TableCell } from "@/components/atoms/TableCell";
 import { TableRow } from "@/components/atoms/TableRow";
 import type { Character } from "@/types/character";
-import styles from "./CharacterTable.module.css";
+import styles from "./CharacterListView.module.css";
 
-export interface CharacterTableProps {
+export interface CharacterListViewProps {
   characters: Character[];
 }
 
-export function CharacterTable({ characters }: CharacterTableProps) {
+export function CharacterListView({ characters }: CharacterListViewProps) {
   return (
     <div className={styles.tableWrapper}>
       <table className={styles.table}>
@@ -32,10 +32,17 @@ export function CharacterTable({ characters }: CharacterTableProps) {
                   alt={character.name}
                   width={50}
                   height={50}
+                  className={styles.characterImage}
                 />
               </TableCell>
               <TableCell>{character.name}</TableCell>
-              <TableCell>{character.status}</TableCell>
+              <TableCell>
+                <span
+                  className={`${styles.status} ${styles[character.status.toLowerCase()]}`}
+                >
+                  {character.status}
+                </span>
+              </TableCell>
               <TableCell>{character.species}</TableCell>
               <TableCell>{character.gender}</TableCell>
               <TableCell>{character.origin.name}</TableCell>

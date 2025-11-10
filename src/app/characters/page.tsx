@@ -1,7 +1,9 @@
 "use client";
 
+import { BackButton } from "@/components/atoms/BackButton";
 import { Heading } from "@/components/atoms/Heading";
-import { CharacterTable } from "@/components/organisms/CharacterTable";
+import { CharacterGridView } from "@/components/organisms/CharacterGridView";
+import { CharacterListView } from "@/components/organisms/CharacterListView";
 import type { Character } from "@/types/character";
 import styles from "./page.module.css";
 
@@ -45,6 +47,8 @@ export default function CharactersPage() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
+        <BackButton />
+
         <header className={styles.header}>
           <Heading>Rick and Morty Characters</Heading>
           <p className={styles.subtitle}>
@@ -53,7 +57,14 @@ export default function CharactersPage() {
         </header>
 
         <section>
-          <CharacterTable characters={sampleCharacters} />
+          <div>
+            <Heading level="h2">List View</Heading>
+            <CharacterListView characters={sampleCharacters} />
+          </div>
+          <div>
+            <Heading level="h2">Grid View</Heading>
+            <CharacterGridView characters={sampleCharacters} />
+          </div>
         </section>
       </div>
     </main>
