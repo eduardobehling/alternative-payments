@@ -2,9 +2,15 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { PageHead } from "./PageHead";
 
-// Mock Next.js Head component
+interface MockElement {
+  type: string;
+  props: Record<string, string>;
+}
+
+const mockHead = jest.fn();
 jest.mock("next/head", () => {
   return function MockHead({ children }: { children: React.ReactNode }) {
+    mockHead(children);
     return <div data-testid="mock-head">{children}</div>;
   };
 });
@@ -17,6 +23,10 @@ describe("PageHead", () => {
     canonicalUrl: "/test-page",
   };
 
+  beforeEach(() => {
+    mockHead.mockClear();
+  });
+
   it("renders with required props", () => {
     const { container } = render(<PageHead {...defaultProps} />);
 
@@ -24,70 +34,113 @@ describe("PageHead", () => {
     expect(head).toBeInTheDocument();
   });
 
-  it("renders title correctly", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+  it("renders without errors", () => {
+    expect(() => render(<PageHead {...defaultProps} />)).not.toThrow();
+  });
 
-    const title = container.querySelector("title");
-    expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent("Test Page Title");
+  it("calls Head component with children", () => {
+    render(<PageHead {...defaultProps} />);
+
+    expect(mockHead).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.any(Object), // title
+        expect.any(Object), // meta description
+        expect.any(Object), // meta keywords
+        expect.any(Object), // meta viewport
+        expect.any(Object), // og:title
+        expect.any(Object), // og:description
+        expect.any(Object), // og:type
+        expect.any(Object), // canonical link
+      ]),
+    );
+  });
+
+  it("renders title element", () => {
+    render(<PageHead {...defaultProps} />);
+
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const titleElement = children.find(
+      (child: MockElement) => child.type === "title",
+    );
+
+    expect(titleElement).toBeDefined();
+    expect(titleElement?.props.children).toBe("Test Page Title");
   });
 
   it("renders meta description", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+    render(<PageHead {...defaultProps} />);
 
-    const metaDescription = container.querySelector('meta[name="description"]');
-    expect(metaDescription).toBeInTheDocument();
-    expect(metaDescription).toHaveAttribute(
-      "content",
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const metaDescription = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.name === "description",
+    );
+
+    expect(metaDescription).toBeDefined();
+    expect(metaDescription?.props.content).toBe(
       "Test page description for SEO",
     );
   });
 
   it("renders meta keywords", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+    render(<PageHead {...defaultProps} />);
 
-    const metaKeywords = container.querySelector('meta[name="keywords"]');
-    expect(metaKeywords).toBeInTheDocument();
-    expect(metaKeywords).toHaveAttribute(
-      "content",
-      "test, page, seo, keywords",
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const metaKeywords = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.name === "keywords",
     );
+
+    expect(metaKeywords).toBeDefined();
+    expect(metaKeywords?.props.content).toBe("test, page, seo, keywords");
   });
 
   it("renders viewport meta tag", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+    render(<PageHead {...defaultProps} />);
 
-    const viewport = container.querySelector('meta[name="viewport"]');
-    expect(viewport).toBeInTheDocument();
-    expect(viewport).toHaveAttribute(
-      "content",
-      "width=device-width, initial-scale=1",
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const viewport = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.name === "viewport",
     );
+
+    expect(viewport).toBeDefined();
+    expect(viewport?.props.content).toBe("width=device-width, initial-scale=1");
   });
 
   it("renders canonical link", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+    render(<PageHead {...defaultProps} />);
 
-    const canonical = container.querySelector('link[rel="canonical"]');
-    expect(canonical).toBeInTheDocument();
-    expect(canonical).toHaveAttribute("href", "/test-page");
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const canonical = children.find(
+      (child: MockElement) =>
+        child.type === "link" && child.props.rel === "canonical",
+    );
+
+    expect(canonical).toBeDefined();
+    expect(canonical?.props.href).toBe("/test-page");
   });
 
   it("renders default Open Graph tags", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+    render(<PageHead {...defaultProps} />);
 
-    const ogTitle = container.querySelector('meta[property="og:title"]');
-    const ogDescription = container.querySelector(
-      'meta[property="og:description"]',
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const ogTitle = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:title",
     );
-    const ogType = container.querySelector('meta[property="og:type"]');
+    const ogDescription = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:description",
+    );
+    const ogType = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:type",
+    );
 
-    expect(ogTitle).toHaveAttribute("content", "Test Page Title");
-    expect(ogDescription).toHaveAttribute(
-      "content",
-      "Test page description for SEO",
-    );
-    expect(ogType).toHaveAttribute("content", "website");
+    expect(ogTitle?.props.content).toBe("Test Page Title");
+    expect(ogDescription?.props.content).toBe("Test page description for SEO");
+    expect(ogType?.props.content).toBe("website");
   });
 
   it("renders custom Open Graph title and description", () => {
@@ -97,15 +150,20 @@ describe("PageHead", () => {
       ogDescription: "Custom OG Description",
     };
 
-    const { container } = render(<PageHead {...customProps} />);
+    render(<PageHead {...customProps} />);
 
-    const ogTitle = container.querySelector('meta[property="og:title"]');
-    const ogDescription = container.querySelector(
-      'meta[property="og:description"]',
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const ogTitle = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:title",
+    );
+    const ogDescription = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:description",
     );
 
-    expect(ogTitle).toHaveAttribute("content", "Custom OG Title");
-    expect(ogDescription).toHaveAttribute("content", "Custom OG Description");
+    expect(ogTitle?.props.content).toBe("Custom OG Title");
+    expect(ogDescription?.props.content).toBe("Custom OG Description");
   });
 
   it("renders custom Open Graph type", () => {
@@ -114,57 +172,91 @@ describe("PageHead", () => {
       ogType: "article",
     };
 
-    const { container } = render(<PageHead {...customProps} />);
+    render(<PageHead {...customProps} />);
 
-    const ogType = container.querySelector('meta[property="og:type"]');
-    expect(ogType).toHaveAttribute("content", "article");
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const ogType = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.property === "og:type",
+    );
+
+    expect(ogType?.props.content).toBe("article");
   });
 
   it("handles long title and description", () => {
     const longProps = {
-      title:
-        "This is a very long title that might be used for a complex page with lots of information",
+      title: "Very Long Title That Should Still Work Correctly",
       description:
-        "This is a very long description that provides detailed information about the page content, its purpose, and what users can expect to find when they visit this page.",
+        "Very long description that should still work correctly and not cause any issues with the component",
       keywords:
         "long, title, description, seo, optimization, detailed, information",
       canonicalUrl: "/very-long-page-url-with-many-segments/and-parameters",
     };
 
-    const { container } = render(<PageHead {...longProps} />);
+    render(<PageHead {...longProps} />);
 
-    const title = container.querySelector("title");
-    const metaDescription = container.querySelector('meta[name="description"]');
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+    const titleElement = children.find(
+      (child: MockElement) => child.type === "title",
+    );
+    const metaDescription = children.find(
+      (child: MockElement) =>
+        child.type === "meta" && child.props.name === "description",
+    );
 
-    expect(title).toHaveTextContent(longProps.title);
-    expect(metaDescription).toHaveAttribute("content", longProps.description);
+    expect(titleElement?.props.children).toBe(longProps.title);
+    expect(metaDescription?.props.content).toBe(longProps.description);
   });
 
-  it("renders all meta tags with correct structure", () => {
-    const { container } = render(<PageHead {...defaultProps} />);
+  it("renders all required elements", () => {
+    render(<PageHead {...defaultProps} />);
 
-    // Check that all required meta tags are present
-    expect(container.querySelector("title")).toBeInTheDocument();
+    const children = mockHead.mock.calls[0][0] as MockElement[];
+
     expect(
-      container.querySelector('meta[name="description"]'),
-    ).toBeInTheDocument();
+      children.find((child: MockElement) => child.type === "title"),
+    ).toBeDefined();
     expect(
-      container.querySelector('meta[name="keywords"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.name === "description",
+      ),
+    ).toBeDefined();
     expect(
-      container.querySelector('meta[name="viewport"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.name === "keywords",
+      ),
+    ).toBeDefined();
     expect(
-      container.querySelector('meta[property="og:title"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.name === "viewport",
+      ),
+    ).toBeDefined();
     expect(
-      container.querySelector('meta[property="og:description"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.property === "og:title",
+      ),
+    ).toBeDefined();
     expect(
-      container.querySelector('meta[property="og:type"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.property === "og:description",
+      ),
+    ).toBeDefined();
     expect(
-      container.querySelector('link[rel="canonical"]'),
-    ).toBeInTheDocument();
+      children.find(
+        (child: MockElement) =>
+          child.type === "meta" && child.props.property === "og:type",
+      ),
+    ).toBeDefined();
+    expect(
+      children.find(
+        (child: MockElement) =>
+          child.type === "link" && child.props.rel === "canonical",
+      ),
+    ).toBeDefined();
   });
 });

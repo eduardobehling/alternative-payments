@@ -149,7 +149,7 @@ describe("TableCell", () => {
     );
 
     expect(screen.getByText("Bold text")).toBeInTheDocument();
-    expect(screen.getByText(" and normal text")).toBeInTheDocument();
+    expect(screen.getByText("and normal text")).toBeInTheDocument();
   });
 
   it("handles empty children", () => {

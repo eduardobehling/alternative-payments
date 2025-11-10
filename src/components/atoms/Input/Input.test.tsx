@@ -54,7 +54,7 @@ describe("Input", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute("type", "text");
 
     rerender(<Input type="password" />);
-    const passwordInput = screen.getByRole("textbox");
+    const passwordInput = screen.getByDisplayValue("");
     expect(passwordInput).toHaveAttribute("type", "password");
 
     rerender(<Input type="email" />);
