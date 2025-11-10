@@ -81,67 +81,26 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```
 src/
-├── app/                        # Next.js App Router
+├── __tests__
+│   └── integration/           # Integration tests
+├── app/                       # Next.js App Router
 │   ├── layout.tsx             # Root layout component
 │   ├── page.tsx               # Home page
 │   ├── globals.css            # Global styles
 │   ├── design-system.css      # Design system styles
 │   ├── characters/            # Characters page
-│   │   ├── page.tsx          # Character listing page
-│   │   └── page.module.css   # Character page styles
-│   └── dashboard/             # Dashboard page
-│       ├── page.tsx          # Dashboard with charts
-│       └── page.module.css   # Dashboard page styles
-│
-├── components/                 # Reusable UI components (Atomic Design)
+│   ├── dashboard/             # Dashboard page
+│   └── styleguide/            # Styleguide page (examples of usage)
+├── components/                # Reusable UI components (Atomic Design)
 │   ├── atoms/                 # Basic building blocks
-│   │   ├── BackButton/       # Navigation back button
-│   │   ├── Button/           # Generic button component
-│   │   ├── CardField/        # Card information field
-│   │   ├── Heading/          # Typography headings
-│   │   ├── Icon/             # Icon components
-│   │   ├── Input/            # Form input fields
-│   │   ├── PageHead/         # HTML head metadata
-│   │   ├── Spinner/          # Loading spinner
-│   │   └── TableCell/        # Table cell component
-│   │
 │   ├── molecules/             # Component combinations
-│   │   ├── Card/             # Character card
-│   │   ├── ErrorMessage/     # Error display
-│   │   ├── PieChart/         # Chart visualization
-│   │   ├── SearchInput/      # Search input with clear
-│   │   ├── TableRow/         # Table row component
-│   │   └── ViewMode/         # View mode switcher
-│   │
-│   └── organisms/             # Complex UI sections
-│       ├── CardGrid/         # Grid layout container
-│       ├── CharacterGridView/# Character cards view
-│       ├── CharacterListView/# Character table view
-│       └── CharacterTable/   # Complete character interface
-│
-├── graphql/                   # GraphQL queries and types
-│   └── queries/
-│       └── characters.ts     # Character data queries
-│
+│   └── organisms/             # Complex UI sections│
+├── graphql/                   # GraphQL queries
+│   └── queries/│
 ├── hooks/                     # Custom React hooks
-│   ├── useCharacters.ts      # Character data management
-│   ├── useDashboard.ts       # Dashboard data
-│   ├── useDebounce.ts        # Input debouncing
-│   └── useInfiniteScroll.ts  # Infinite scroll logic
-│
 ├── lib/                       # Utility libraries
-│   └── apolloClient.ts       # Apollo Client configuration
-│
 ├── providers/                 # React context providers
-│   └── ApolloProvider.tsx    # GraphQL provider setup
-│
 └── types/                     # TypeScript type definitions
-    ├── character.ts          # Character data types
-    ├── chart.ts              # Chart data types
-    ├── components.ts         # Component prop types
-    ├── dashboard.ts          # Dashboard types
-    ├── graphql.ts            # GraphQL response types
-    └── hooks.ts              # Custom hook types
 
 Configuration Files:
 ├── biome.json                 # Biome linter/formatter config
@@ -167,13 +126,14 @@ The project features comprehensive test coverage across all component layers:
 
 ### Test Coverage by Component Type
 - **Atoms**: 100% unit test coverage
-- **Molecules**: @ToDo Impement tests for molecules components
+- **Molecules**: @ToDo Implement tests for molecules components  
 - **Organisms**: Snapshot testing for visual regression
 
 ### Testing Tools & Configuration
 - **Jest**: Primary testing framework with coverage reporting
 - **React Testing Library**: Component testing with best practices
 - **Snapshot Testing**: Visual regression testing for complex components
+- **Integration Testing**: Component interaction and data flow validation
 
 ### Running Tests
 ```bash
