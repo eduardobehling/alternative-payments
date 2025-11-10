@@ -9,3 +9,15 @@ export interface Character {
   location: { name: string };
   image: string;
 }
+
+export interface CharactersData {
+  characters: {
+    info: {
+      count: number;
+      pages: number;
+      next: number | null;
+      prev: number | null;
+    };
+    results: Character[];
+  };
+}
