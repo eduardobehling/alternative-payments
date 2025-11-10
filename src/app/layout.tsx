@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rick and Morty Character Dashboard | Alternative Payments",
-  description: "Interactive Rick and Morty character explorer with advanced search, data visualization, and analytics dashboard. Built with Next.js, TypeScript, and GraphQL API integration.",
+  description:
+    "Interactive Rick and Morty character explorer with advanced search, data visualization, and analytics dashboard. Built with Next.js, TypeScript, and GraphQL API integration.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -28,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
