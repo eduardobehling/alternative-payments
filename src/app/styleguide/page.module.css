@@ -145,6 +145,7 @@
   padding: var(--spacing-6);
   background: var(--color-bg-secondary);
   border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .showcaseTitle {
@@ -158,6 +159,33 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-tertiary);
   margin-bottom: var(--spacing-4);
+}
+
+/* Data presentation specific styles */
+.dataContainer {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+}
+
+/* Custom scrollbar for showcase tables */
+.dataContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.dataContainer::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+}
+
+.dataContainer::-webkit-scrollbar-thumb {
+  background: var(--color-border-primary);
+  border-radius: var(--radius-full);
+}
+
+.dataContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-brand);
 }
 
 /* Responsive */
@@ -177,5 +205,45 @@
 
   .iconGrid {
     grid-template-columns: 1fr;
+  }
+
+  .showcaseItem {
+    padding: var(--spacing-4);
+    margin: 0 calc(-1 * var(--spacing-4));
+    border-radius: var(--radius-md);
+  }
+
+  .dataContainer {
+    margin: 0 calc(-1 * var(--spacing-4));
+    padding: 0 var(--spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-2);
+  }
+
+  .section {
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .showcaseItem {
+    padding: var(--spacing-3);
+    margin: 0 calc(-1 * var(--spacing-2));
+  }
+
+  .dataContainer {
+    margin: 0 calc(-1 * var(--spacing-3));
+    padding: 0 var(--spacing-3);
+  }
+
+  .exampleContainer {
+    padding: var(--spacing-4);
+  }
+
+  .componentShowcase {
+    gap: var(--spacing-4);
   }
 }

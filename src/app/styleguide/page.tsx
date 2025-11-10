@@ -528,7 +528,9 @@ export default function StyleguidePage() {
                 Tabular display for detailed data with sorting and filtering
                 capabilities.
               </p>
-              <CharacterListView characters={sampleCharacters} />
+              <div className={styles.dataContainer}>
+                <CharacterListView characters={sampleCharacters} />
+              </div>
             </div>
 
             <div className={styles.showcaseItem}>
@@ -537,7 +539,9 @@ export default function StyleguidePage() {
                 Card-based layout for visual browsing with responsive grid
                 system.
               </p>
-              <CharacterGridView characters={sampleCharacters} />
+              <div className={styles.dataContainer}>
+                <CharacterGridView characters={sampleCharacters} />
+              </div>
             </div>
           </div>
         </section>
