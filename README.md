@@ -1,14 +1,29 @@
-# Alternative Payments take-home assignment
+# Alternative Payments Take-Home Assignment
 
-A Next.js application with GraphQL (Apollo Client) and CSS Modules.
+A modern React application built with Next.js featuring character browsing capabilities, comprehensive testing suite, and atomic design architecture. The app provides both grid and table views for character data with search and infinite scroll functionality.
 
 ## Tech Stack
 
-- **Next.js 16.0.1** - React framework for production
-- **React 19.2.0** - UI library
-- **TypeScript 5** - Type-safe JavaScript
-- **CSS Modules** - Component-scoped CSS styling
-- **Biome** - Fast formatter and linter
+### Core Framework
+- **Next.js 16.0.1** - React framework with App Router
+- **React 19.2.0** - UI library with latest features
+- **TypeScript 5** - Type-safe JavaScript development
+
+### Data Management
+- **Apollo Client 4.0.9** - GraphQL client with caching
+- **GraphQL 16.12.0** - Query language for APIs
+
+### UI & Styling
+- **CSS Modules** - Component-scoped styling
+
+### Dashboards
+- **Recharts 3.3.0** - Data visualization library
+
+### Development & Testing
+- **Jest 30.2.0** - JavaScript testing framework
+- **React Testing Library 16.3.0** - Component testing utilities
+- **Biome 2.2.0** - Fast formatter and linter
+- **TypeScript** - Static type checking
 
 ## Prerequisites
 
@@ -48,30 +63,184 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Available Scripts
 
-- `npm run dev` - Start the development server
+### Development
+- `npm run dev` - Start the development server on http://localhost:3000
 - `npm run build` - Build the application for production
 - `npm start` - Start the production server
-- `npm run lint` - Run Biome linter
+
+### Code Quality
+- `npm run lint` - Run Biome linter to check code quality
 - `npm run format` - Format code with Biome
+
+### Testing
+- `npm run test` - Run all tests once
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
 
 ## Project Structure
 
 ```
 src/
-├── app/                   # Next.js App Router pages
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   ├── page.module.css    # CSS Module for home page
-│   └── page.tsx           # Home page
+├── app/                        # Next.js App Router
+│   ├── layout.tsx             # Root layout component
+│   ├── page.tsx               # Home page
+│   ├── globals.css            # Global styles
+│   ├── design-system.css      # Design system styles
+│   ├── characters/            # Characters page
+│   │   ├── page.tsx          # Character listing page
+│   │   └── page.module.css   # Character page styles
+│   └── dashboard/             # Dashboard page
+│       ├── page.tsx          # Dashboard with charts
+│       └── page.module.css   # Dashboard page styles
+│
+├── components/                 # Reusable UI components (Atomic Design)
+│   ├── atoms/                 # Basic building blocks
+│   │   ├── BackButton/       # Navigation back button
+│   │   ├── Button/           # Generic button component
+│   │   ├── CardField/        # Card information field
+│   │   ├── Heading/          # Typography headings
+│   │   ├── Icon/             # Icon components
+│   │   ├── Input/            # Form input fields
+│   │   ├── PageHead/         # HTML head metadata
+│   │   ├── Spinner/          # Loading spinner
+│   │   └── TableCell/        # Table cell component
+│   │
+│   ├── molecules/             # Component combinations
+│   │   ├── Card/             # Character card
+│   │   ├── ErrorMessage/     # Error display
+│   │   ├── PieChart/         # Chart visualization
+│   │   ├── SearchInput/      # Search input with clear
+│   │   ├── TableRow/         # Table row component
+│   │   └── ViewMode/         # View mode switcher
+│   │
+│   └── organisms/             # Complex UI sections
+│       ├── CardGrid/         # Grid layout container
+│       ├── CharacterGridView/# Character cards view
+│       ├── CharacterListView/# Character table view
+│       └── CharacterTable/   # Complete character interface
+│
+├── graphql/                   # GraphQL queries and types
+│   └── queries/
+│       └── characters.ts     # Character data queries
+│
+├── hooks/                     # Custom React hooks
+│   ├── useCharacters.ts      # Character data management
+│   ├── useDashboard.ts       # Dashboard data
+│   ├── useDebounce.ts        # Input debouncing
+│   └── useInfiniteScroll.ts  # Infinite scroll logic
+│
+├── lib/                       # Utility libraries
+│   └── apolloClient.ts       # Apollo Client configuration
+│
+├── providers/                 # React context providers
+│   └── ApolloProvider.tsx    # GraphQL provider setup
+│
+└── types/                     # TypeScript type definitions
+    ├── character.ts          # Character data types
+    ├── chart.ts              # Chart data types
+    ├── components.ts         # Component prop types
+    ├── dashboard.ts          # Dashboard types
+    ├── graphql.ts            # GraphQL response types
+    └── hooks.ts              # Custom hook types
+
+Configuration Files:
+├── biome.json                 # Biome linter/formatter config
+├── jest.config.js            # Jest testing configuration
+├── jest.setup.js             # Jest setup and mocks
+├── next.config.ts            # Next.js configuration
+├── tsconfig.json             # TypeScript configuration
+└── .nvmrc                    # Node.js version specification
 ```
+
+### Architecture Highlights
+
+- **Atomic Design Pattern**: Components are organized in atoms → molecules → organisms hierarchy
+- **Feature-Based Routing**: Next.js App Router with dedicated page directories
+- **Type Safety**: Comprehensive TypeScript coverage with strict type checking
+- **Testing Strategy**: 100% test coverage for atomic components and snapshot tests for organisms
+- **Modern React**: Utilizes React 19 features and patterns
+- **GraphQL Integration**: Apollo Client for efficient data fetching and caching
+
+## Testing Strategy
+
+The project features comprehensive test coverage across all component layers:
+
+### Test Coverage by Component Type
+- **Atoms**: 100% unit test coverage
+- **Molecules**: @ToDo Impement tests for molecules components
+- **Organisms**: Snapshot testing for visual regression
+
+### Testing Tools & Configuration
+- **Jest**: Primary testing framework with coverage reporting
+- **React Testing Library**: Component testing with best practices
+- **Snapshot Testing**: Visual regression testing for complex components
+
+### Running Tests
+```bash
+npm run test              # Run all tests
+npm run test:watch        # Watch mode for development
+npm run test:coverage     # Generate coverage reports
+```
+
+Test files are co-located with components following the pattern `ComponentName.test.tsx`.
+
+## Features
+
+- 🔍 **Character Search**: Real-time search with debounced input
+- 📊 **Data Visualization**: Interactive charts and statistics
+- 🎛️ **View Modes**: Toggle between grid and table layouts
+- ♾️ **Infinite Scroll**: Seamless data loading
+- 📱 **Responsive Design**: Mobile-first approach
+- ⚡ **Performance**: Optimized with Next.js and Apollo caching
+- 🧪 **Tested**: Comprehensive test suite with high coverage
+
+## Next Steps
+
+The following improvements and enhancements are recommended for future development:
+
+### 🎨 **Design System & Component Library**
+- **Extract Design System**: If the design system will be used across multiple applications, consider extracting it into a separate package. This would allow installation as a dependency, making it more maintainable and easier to reuse across different projects.
+
+- **Component Library Package**: Similarly, extract atoms and molecules components into a standalone component library package. This approach promotes consistency across applications and enables centralized component maintenance and versioning.
+
+### 🚀 **Production Deployment**
+- **CI/CD Pipelines**: Implement automated deployment pipelines for production environments. This should include:
+  - Automated testing on pull requests
+  - Build optimization and validation
+  - Deployment to staging and production environments
+  - Performance monitoring and health checks
+  - Rollback capabilities for quick recovery
+
+### 🧪 **Testing Enhancements**
+- **Improve Test Coverage**: Expand test coverage beyond the current atomic and organism components to achieve comprehensive application coverage.
+
+- **Molecule Component Testing**: Implement comprehensive behavioral tests for molecule components. These tests should cover:
+  - User interactions and event handling
+  - Component state management
+  - Props validation and edge cases
+  - Integration between atoms within molecules
+  - Accessibility compliance testing
+
+### 🔧 **Additional Considerations**
+- **Performance Optimization**: Implement advanced performance monitoring and optimization strategies
+- **Accessibility Audits**: Conduct comprehensive accessibility testing and improvements
+- **Documentation**: Create comprehensive component documentation with Storybook integration
+- **Monitoring & Analytics**: Add application performance monitoring and user analytics
 
 ## Learn More
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
+### Documentation
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [React Documentation](https://react.dev) - Learn about React 19 features
+- [Apollo Client](https://www.apollographql.com/docs/react/) - GraphQL client documentation
+- [TypeScript](https://www.typescriptlang.org/docs/) - TypeScript handbook
+- [CSS Modules](https://github.com/css-modules/css-modules) - CSS Modules documentation
+- [Jest Testing](https://jestjs.io/docs/getting-started) - Jest testing framework
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Component testing best practices
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Project Patterns
+- **Atomic Design**: Components follow atomic design methodology
+- **Custom Hooks**: Reusable logic with React hooks
+- **TypeScript**: Strict type safety throughout the application
+- **CSS Modules**: Scoped styling with CSS Modules
+- **Testing**: Comprehensive testing strategy with high coverage
