@@ -1,1 +1,32 @@
-/* Spinner styles */
+.spinner {
+  display: inline-block;
+}
+
+.circle {
+  border: 2px solid var(--color-border-primary);
+  border-top-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  animation: spin var(--duration-700) var(--ease-linear) infinite;
+}
+
+.sm .circle {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+
+.md .circle {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+}
+
+.lg .circle {
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+  border-width: 3px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

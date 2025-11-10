@@ -5,9 +5,5 @@ export function Input({
   className = "",
   ...props
 }: InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <div className={styles.wrapper}>
-      <input className={`${styles.input} ${className}`} {...props} />
-    </div>
-  );
+  return <input className={`${styles.input} ${className}`} {...props} />;
 }
