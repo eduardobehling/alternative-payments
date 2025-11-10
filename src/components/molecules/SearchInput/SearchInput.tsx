@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes } from "react";
 import { Button } from "@/components/atoms/Button";
+import { CloseIcon } from "@/components/atoms/Icon";
 import { Input } from "@/components/atoms/Input";
 import styles from "./SearchInput.module.css";
 
@@ -26,7 +27,9 @@ export function SearchInput({
           onClick={onClear}
           className={styles.clearButton}
           aria-label="Clear search"
-        ></Button>
+        >
+          <CloseIcon size={16} />
+        </Button>
       )}
     </div>
   );

@@ -1,1 +1,39 @@
-/* Search input styles */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.clearButton {
+  position: absolute;
+  right: var(--spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  padding: var(--spacing-1);
+  transition: var(--transition-colors);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  width: auto;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-regular);
+}
+
+.clearButton:hover:not(:disabled) {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.clearButton:focus {
+  outline: none;
+  box-shadow: var(--ring-shadow);
+}
+
+@media (max-width: 640px) {
+  .clearButton {
+    width: auto;
+    padding: var(--spacing-1);
+  }
+}

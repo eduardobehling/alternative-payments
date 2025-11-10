@@ -1,1 +1,9 @@
-export { AlertIcon, ChartIcon, GridIcon, TableIcon, UsersIcon } from "./Icon";
+export {
+  AlertIcon,
+  ChartIcon,
+  CloseIcon,
+  GridIcon,
+  PaletteIcon,
+  TableIcon,
+  UsersIcon,
+} from "./Icon";

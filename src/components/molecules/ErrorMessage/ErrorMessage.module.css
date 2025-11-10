@@ -1,1 +1,51 @@
-/* ErrorMessage styles */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  padding: var(--card-padding);
+  background-color: var(--color-error-container);
+  border: var(--card-border-width) solid var(--color-error-border);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-8) 0;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-error-icon);
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-error-text);
+  margin-bottom: var(--spacing-2);
+}
+
+.message {
+  font-size: var(--font-size-md);
+  color: var(--color-error-text);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-4);
+    gap: var(--spacing-3);
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+
+  .message {
+    font-size: var(--font-size-base);
+  }
+}
