@@ -1,1 +1,59 @@
-/* BackButton styles */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5);
+  margin-bottom: var(--spacing-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: none;
+  border: 2px solid var(--color-border-brand);
+  border-radius: var(--button-border-radius);
+  background: var(--color-bg-primary);
+  transition: var(--transition-all);
+  min-height: var(--button-height-lg);
+  cursor: pointer;
+}
+
+.backButton:hover {
+  color: var(--color-text-inverse);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateX(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.backButton:focus {
+  outline: none;
+  box-shadow: var(--ring-shadow);
+}
+
+.backButton:active {
+  transform: translateX(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .backButton {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-3-5) var(--spacing-5);
+    margin-bottom: var(--spacing-5);
+    font-size: var(--font-size-base);
+    min-height: var(--button-height-lg);
+  }
+
+  .backButton:hover {
+    transform: none;
+  }
+
+  .backButton:active {
+    transform: scale(0.98);
+  }
+
+  .backButton:focus {
+    box-shadow: var(--ring-shadow);
+  }
+}
