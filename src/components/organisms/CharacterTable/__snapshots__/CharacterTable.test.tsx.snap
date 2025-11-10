@@ -1,0 +1,1003 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CharacterTable Snapshots renders controls section correctly 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Custom placeholder"
+      value="test search"
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders empty state with custom messages 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="emptyState"
+  >
+    <p>
+      No characters match your search
+    </p>
+    <p
+      class="emptyHint"
+    >
+      Try adjusting your search criteria
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders empty state with no characters 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="emptyState"
+  >
+    <p>
+      No characters found
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders loading more state 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+  <div
+    class="loadingMore"
+  >
+    <div
+      data-size="md"
+      data-testid="spinner"
+    >
+      Loading...
+    </div>
+    <p>
+      Loading more characters...
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders loading state 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="loadingInitial"
+  >
+    <div
+      data-size="lg"
+      data-testid="spinner"
+    >
+      Loading...
+    </div>
+    <p>
+      Loading characters...
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders loading state while characters exist 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders results info with multiple characters 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      42
+       character
+      s
+    </p>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders results info with singular character 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      1
+       character
+    </p>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with all props combined 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters..."
+      value="Rick"
+    />
+    <div
+      data-testid="view-mode"
+      data-value="grid"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      2
+       character
+      s
+    </p>
+  </div>
+  <div
+    data-testid="character-grid-view"
+  >
+    Grid view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+  <div
+    data-testid="infinite-scroll-trigger"
+  >
+    Scroll trigger
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with complex load more trigger 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+  <div
+    class="loadingMore"
+  >
+    <div
+      data-size="md"
+      data-testid="spinner"
+    >
+      Loading...
+    </div>
+    <p>
+      Loading more characters...
+    </p>
+  </div>
+  <div
+    data-testid="complex-trigger"
+  >
+    <div>
+      Loading more content...
+    </div>
+    <button
+      type="button"
+    >
+      Manual Load More
+    </button>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with custom defaultViewMode as grid 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="grid"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-grid-view"
+  >
+    Grid view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with custom search placeholder 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search by name, species, or location..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with default props 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with load more trigger 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+  <button
+    data-testid="load-more"
+    type="button"
+  >
+    Load More Characters
+  </button>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with many characters 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      826
+       character
+      s
+    </p>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    10
+     characters
+    <div>
+      Character 1
+    </div>
+    <div>
+      Character 2
+    </div>
+    <div>
+      Character 3
+    </div>
+    <div>
+      Character 4
+    </div>
+    <div>
+      Character 5
+    </div>
+    <div>
+      Character 6
+    </div>
+    <div>
+      Character 7
+    </div>
+    <div>
+      Character 8
+    </div>
+    <div>
+      Character 9
+    </div>
+    <div>
+      Character 10
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with search term 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+      value="Rick"
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with single character 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      1
+       character
+    </p>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    1
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with total count 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      826
+       character
+      s
+    </p>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders with zero total count 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    class="resultsInfo"
+  >
+    <p
+      class="resultsText"
+    >
+      Found 
+      0
+       character
+      s
+    </p>
+  </div>
+  <div
+    class="emptyState"
+  >
+    <p>
+      No characters found
+    </p>
+  </div>
+</div>
+`;
+
+exports[`CharacterTable Snapshots renders without total count prop 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="controls"
+  >
+    <input
+      data-testid="search-input"
+      placeholder="Search characters by name..."
+    />
+    <div
+      data-testid="view-mode"
+      data-value="table"
+    >
+      <button
+        type="button"
+      >
+        Table
+      </button>
+      <button
+        type="button"
+      >
+        Grid
+      </button>
+    </div>
+  </div>
+  <div
+    data-testid="character-list-view"
+  >
+    List view with 
+    2
+     characters
+    <div>
+      Rick Sanchez
+    </div>
+    <div>
+      Morty Smith
+    </div>
+  </div>
+</div>
+`;
