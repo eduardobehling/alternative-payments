@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { TableCell } from "@/components/atoms/TableCell";
-import { TableRow } from "@/components/atoms/TableRow";
+import { TableRow } from "@/components/molecules/TableRow";
 import type { Character } from "@/types/character";
 import styles from "./CharacterListView.module.css";
 
