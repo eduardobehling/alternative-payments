@@ -33,3 +33,25 @@ export const GET_CHARACTERS = gql`
     }
   }
 `;
+
+// Query to fetch characters with location data for grouping by location
+export const GET_CHARACTERS_WITH_LOCATION = gql`
+  query GetCharactersWithLocation($page: Int!) {
+    characters(page: $page) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        location {
+          id
+          name
+        }
+      }
+    }
+  }
+`;

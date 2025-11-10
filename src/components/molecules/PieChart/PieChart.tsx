@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import type { ChartDataItem } from "@/types/chart";
+import type { ChartDataItem } from "@/types/dashboard";
 import styles from "./PieChart.module.css";
 
 export interface PieChartProps {
