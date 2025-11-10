@@ -14,6 +14,7 @@ import {
   UsersIcon,
 } from "@/components/atoms/Icon";
 import { Input } from "@/components/atoms/Input";
+import { PageHead } from "@/components/atoms/PageHead";
 import { Spinner } from "@/components/atoms/Spinner";
 import { ErrorMessage } from "@/components/molecules/ErrorMessage";
 import { SearchInput } from "@/components/molecules/SearchInput";
@@ -64,372 +65,483 @@ export default function StyleguidePage() {
   const [viewMode, setViewMode] = useState<ViewModeType>("table");
 
   return (
-    <main className={styles.container}>
-      <BackButton />
+    <>
+      <PageHead
+        title="Design System Styleguide | Alternative Payments"
+        description="A comprehensive showcase of design components and UI patterns used throughout the Alternative Payments application. Explore components, variants, and best practices."
+        keywords="design system, styleguide, UI components, design patterns, Alternative Payments, React components"
+        canonicalUrl="/styleguide"
+      />
 
-      <header className={styles.header}>
-        <Heading>Design System Styleguide</Heading>
-        <p className={styles.description}>
-          A comprehensive showcase of design components and UI patterns used
-          throughout the Alternative Payments application. This styleguide helps
-          developers understand component usage, variants, and best practices.
-        </p>
-      </header>
+      <main className={styles.container}>
+        <BackButton />
 
-      {/* Atomic Components */}
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Navigation Components
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Components for navigation and user interaction flows.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Back Button
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Use for navigation back to previous pages. Supports custom href and
-            label.
+        <header className={styles.header}>
+          <Heading>Design System Styleguide</Heading>
+          <p className={styles.description}>
+            A comprehensive showcase of design components and UI patterns used
+            throughout the Alternative Payments application. This styleguide
+            helps developers understand component usage, variants, and best
+            practices.
           </p>
-          <div className={styles.exampleContainer}>
-            <BackButton />
-            <BackButton href="/" label="Home" />
-          </div>
-          <div className={styles.exampleCode}>
-            {`<BackButton />
+        </header>
+
+        {/* Atomic Components */}
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Navigation Components
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Components for navigation and user interaction flows.
+          </p>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Back Button
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Use for navigation back to previous pages. Supports custom href
+              and label.
+            </p>
+            <div className={styles.exampleContainer}>
+              <BackButton />
+              <BackButton href="/" label="Home" />
+            </div>
+            <div className={styles.exampleCode}>
+              {`<BackButton />
 <BackButton href="/" label="Home" />`}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Button Component
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Primary interactive elements with different sizes and variants for
-          various use cases.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Button Sizes
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Button Component
           </Heading>
-          <p className={styles.exampleDescription}>
-            Available sizes: sm, md, lg, xl. Use larger sizes for primary
-            actions.
+          <p className={styles.sectionDescription}>
+            Primary interactive elements with different sizes and variants for
+            various use cases.
           </p>
-          <div className={styles.exampleContainer}>
-            <Button variant="primary" size="xl">
-              Extra Large
-            </Button>
-            <Button variant="primary" size="lg">
-              Large
-            </Button>
-            <Button variant="primary" size="md">
-              Medium
-            </Button>
-            <Button variant="primary" size="sm">
-              Small
-            </Button>
-          </div>
-          <div className={styles.exampleCode}>
-            {`<Button variant="primary" size="xl">Extra Large</Button>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Button Sizes
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Available sizes: sm, md, lg, xl. Use larger sizes for primary
+              actions.
+            </p>
+            <div className={styles.exampleContainer}>
+              <Button variant="primary" size="xl">
+                Extra Large
+              </Button>
+              <Button variant="primary" size="lg">
+                Large
+              </Button>
+              <Button variant="primary" size="md">
+                Medium
+              </Button>
+              <Button variant="primary" size="sm">
+                Small
+              </Button>
+            </div>
+            <div className={styles.exampleCode}>
+              {`<Button variant="primary" size="xl">Extra Large</Button>
 <Button variant="primary" size="lg">Large</Button>
 <Button variant="primary" size="md">Medium</Button>
 <Button variant="primary" size="sm">Small</Button>`}
+            </div>
           </div>
-        </div>
 
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Button Variants
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Primary for main actions, secondary for supporting actions, disabled
-            for unavailable actions.
-          </p>
-          <div className={styles.exampleContainer}>
-            <Button variant="primary" size="md">
-              Primary
-            </Button>
-            <Button variant="secondary" size="md">
-              Secondary
-            </Button>
-            <Button variant="primary" size="md" disabled>
-              Disabled
-            </Button>
-          </div>
-          <div className={styles.exampleCode}>
-            {`<Button variant="primary" size="md">Primary</Button>
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Button Variants
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Primary for main actions, secondary for supporting actions,
+              disabled for unavailable actions.
+            </p>
+            <div className={styles.exampleContainer}>
+              <Button variant="primary" size="md">
+                Primary
+              </Button>
+              <Button variant="secondary" size="md">
+                Secondary
+              </Button>
+              <Button variant="primary" size="md" disabled>
+                Disabled
+              </Button>
+            </div>
+            <div className={styles.exampleCode}>
+              {`<Button variant="primary" size="md">Primary</Button>
 <Button variant="secondary" size="md">Secondary</Button>
 <Button variant="primary" size="md" disabled>Disabled</Button>`}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Typography
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Heading components with semantic levels for proper content hierarchy.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Heading Levels
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Use h1 for page titles, h2 for sections, h3 for subsections, and
-            h4-h6 for smaller headings.
-          </p>
-          <div className={styles.exampleContainer}>
-            <div>
-              <Heading level="h1">Heading 1 - Page Title</Heading>
-              <Heading level="h2">Heading 2 - Section</Heading>
-              <Heading level="h3">Heading 3 - Subsection</Heading>
-              <Heading level="h4">Heading 4 - Component</Heading>
-              <Heading level="h5">Heading 5 - Detail</Heading>
-              <Heading level="h6">Heading 6 - Small</Heading>
             </div>
           </div>
-          <div className={styles.exampleCode}>
-            {`<Heading level="h1">Heading 1 - Page Title</Heading>
+        </section>
+
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Page Head Component
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Centralized component for managing page metadata, SEO, and Open
+            Graph properties. Use this component at the top of every page for
+            consistent SEO implementation.
+          </p>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Basic Usage
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Standard PageHead with all required properties for SEO
+              optimization.
+            </p>
+            <div className={styles.exampleContainer}>
+              <div className={styles.codePreview}>
+                <p>
+                  <strong>Note:</strong> PageHead component renders meta tags in
+                  the document head and is not visually displayed. This example
+                  shows the component structure and props.
+                </p>
+                <div className={styles.metaPreview}>
+                  <div className={styles.metaItem}>
+                    <strong>Title:</strong> Rick and Morty Characters |
+                    Alternative Payments
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>Description:</strong> Explore characters from the
+                    Rick and Morty universe...
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>Keywords:</strong> Rick and Morty, characters, TV
+                    show, cartoon
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>Canonical URL:</strong> /characters
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.exampleCode}>
+              {`<PageHead
+  title="Rick and Morty Characters | Alternative Payments"
+  description="Explore characters from the Rick and Morty universe. Search through hundreds of characters with detailed information."
+  keywords="Rick and Morty, characters, TV show, cartoon, Adult Swim"
+  canonicalUrl="/characters"
+/>`}
+            </div>
+          </div>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Advanced Usage with Custom Open Graph
+            </Heading>
+            <p className={styles.exampleDescription}>
+              PageHead with custom Open Graph title and description for social
+              media sharing.
+            </p>
+            <div className={styles.exampleContainer}>
+              <div className={styles.codePreview}>
+                <div className={styles.metaPreview}>
+                  <div className={styles.metaItem}>
+                    <strong>Title:</strong> Design System | Alternative Payments
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>OG Title:</strong> Comprehensive Design System
+                    Styleguide
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>OG Description:</strong> Explore our complete design
+                    system with components, patterns, and best practices
+                  </div>
+                  <div className={styles.metaItem}>
+                    <strong>OG Type:</strong> article
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.exampleCode}>
+              {`<PageHead
+  title="Design System | Alternative Payments"
+  description="A comprehensive showcase of design components and UI patterns used throughout the Alternative Payments application."
+  keywords="design system, styleguide, UI components, design patterns"
+  canonicalUrl="/styleguide"
+  ogTitle="Comprehensive Design System Styleguide"
+  ogDescription="Explore our complete design system with components, patterns, and best practices"
+  ogType="article"
+/>`}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Typography
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Heading components with semantic levels for proper content
+            hierarchy.
+          </p>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Heading Levels
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Use h1 for page titles, h2 for sections, h3 for subsections, and
+              h4-h6 for smaller headings.
+            </p>
+            <div className={styles.exampleContainer}>
+              <div>
+                <Heading level="h1">Heading 1 - Page Title</Heading>
+                <Heading level="h2">Heading 2 - Section</Heading>
+                <Heading level="h3">Heading 3 - Subsection</Heading>
+                <Heading level="h4">Heading 4 - Component</Heading>
+                <Heading level="h5">Heading 5 - Detail</Heading>
+                <Heading level="h6">Heading 6 - Small</Heading>
+              </div>
+            </div>
+            <div className={styles.exampleCode}>
+              {`<Heading level="h1">Heading 1 - Page Title</Heading>
 <Heading level="h2">Heading 2 - Section</Heading>
 <Heading level="h3">Heading 3 - Subsection</Heading>`}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Icons
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Consistent iconography with customizable size and accessibility
-          support.
-        </p>
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Icons
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Consistent iconography with customizable size and accessibility
+            support.
+          </p>
 
-        <div className={styles.iconGrid}>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <AlertIcon size={16} />
-              <AlertIcon size={24} />
-              <AlertIcon size={32} />
+          <div className={styles.iconGrid}>
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <AlertIcon size={16} />
+                <AlertIcon size={24} />
+                <AlertIcon size={32} />
+              </div>
+              <span className={styles.iconName}>AlertIcon</span>
             </div>
-            <span className={styles.iconName}>AlertIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <ChartIcon size={16} />
-              <ChartIcon size={24} />
-              <ChartIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <ChartIcon size={16} />
+                <ChartIcon size={24} />
+                <ChartIcon size={32} />
+              </div>
+              <span className={styles.iconName}>ChartIcon</span>
             </div>
-            <span className={styles.iconName}>ChartIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <CloseIcon size={16} />
-              <CloseIcon size={24} />
-              <CloseIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <CloseIcon size={16} />
+                <CloseIcon size={24} />
+                <CloseIcon size={32} />
+              </div>
+              <span className={styles.iconName}>CloseIcon</span>
             </div>
-            <span className={styles.iconName}>CloseIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <GridIcon size={16} />
-              <GridIcon size={24} />
-              <GridIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <GridIcon size={16} />
+                <GridIcon size={24} />
+                <GridIcon size={32} />
+              </div>
+              <span className={styles.iconName}>GridIcon</span>
             </div>
-            <span className={styles.iconName}>GridIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <PaletteIcon size={16} />
-              <PaletteIcon size={24} />
-              <PaletteIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <PaletteIcon size={16} />
+                <PaletteIcon size={24} />
+                <PaletteIcon size={32} />
+              </div>
+              <span className={styles.iconName}>PaletteIcon</span>
             </div>
-            <span className={styles.iconName}>PaletteIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <TableIcon size={16} />
-              <TableIcon size={24} />
-              <TableIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <TableIcon size={16} />
+                <TableIcon size={24} />
+                <TableIcon size={32} />
+              </div>
+              <span className={styles.iconName}>TableIcon</span>
             </div>
-            <span className={styles.iconName}>TableIcon</span>
-          </div>
-          <div className={styles.iconExample}>
-            <div className={styles.iconSizes}>
-              <UsersIcon size={16} />
-              <UsersIcon size={24} />
-              <UsersIcon size={32} />
+            <div className={styles.iconExample}>
+              <div className={styles.iconSizes}>
+                <UsersIcon size={16} />
+                <UsersIcon size={24} />
+                <UsersIcon size={32} />
+              </div>
+              <span className={styles.iconName}>UsersIcon</span>
             </div>
-            <span className={styles.iconName}>UsersIcon</span>
           </div>
-        </div>
 
-        <div className={styles.exampleCode}>
-          {`<AlertIcon size={24} title="Custom accessibility title" />
+          <div className={styles.exampleCode}>
+            {`<AlertIcon size={24} title="Custom accessibility title" />
 <ChartIcon size={32} />
 <UsersIcon size={16} />`}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Form Components
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Input components for user data collection with various states and
-          validation.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Input Variations
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Default input for text entry, disabled state for read-only fields.
-          </p>
-          <div className={styles.exampleContainer}>
-            <Input placeholder="Enter text here" />
-            <Input placeholder="Disabled input" disabled />
           </div>
-          <div className={styles.exampleCode}>
-            {`<Input placeholder="Enter text here" />
+        </section>
+
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Form Components
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Input components for user data collection with various states and
+            validation.
+          </p>
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Input Variations
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Default input for text entry, disabled state for read-only fields.
+            </p>
+            <div className={styles.exampleContainer}>
+              <Input placeholder="Enter text here" />
+              <Input placeholder="Disabled input" disabled />
+            </div>
+            <div className={styles.exampleCode}>
+              {`<Input placeholder="Enter text here" />
 <Input placeholder="Disabled input" disabled />`}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Loading States
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Spinner components to indicate loading states with different sizes.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Spinner Sizes
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Loading States
           </Heading>
-          <p className={styles.exampleDescription}>
-            Use small for inline loading, medium for components, large for
-            full-screen loading.
+          <p className={styles.sectionDescription}>
+            Spinner components to indicate loading states with different sizes.
           </p>
-          <div className={styles.exampleContainer}>
-            <Spinner size="sm" />
-            <Spinner size="md" />
-            <Spinner size="lg" />
-          </div>
-          <div className={styles.exampleCode}>
-            {`<Spinner size="sm" />
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Spinner Sizes
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Use small for inline loading, medium for components, large for
+              full-screen loading.
+            </p>
+            <div className={styles.exampleContainer}>
+              <Spinner size="sm" />
+              <Spinner size="md" />
+              <Spinner size="lg" />
+            </div>
+            <div className={styles.exampleCode}>
+              {`<Spinner size="sm" />
 <Spinner size="md" />  
 <Spinner size="lg" />`}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Molecular Components */}
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Molecular Components
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Complex components built from atomic elements for specific use cases.
-        </p>
-
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Error Message
+        {/* Molecular Components */}
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Molecular Components
           </Heading>
-          <p className={styles.exampleDescription}>
-            Display error states with clear messaging and visual indicators.
+          <p className={styles.sectionDescription}>
+            Complex components built from atomic elements for specific use
+            cases.
           </p>
-          <div className={styles.exampleContainer}>
-            <ErrorMessage
-              title="Validation Error"
-              message="Please check your input and try again."
-            />
-          </div>
-          <div className={styles.exampleCode}>
-            {`<ErrorMessage 
+
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Error Message
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Display error states with clear messaging and visual indicators.
+            </p>
+            <div className={styles.exampleContainer}>
+              <ErrorMessage
+                title="Validation Error"
+                message="Please check your input and try again."
+              />
+            </div>
+            <div className={styles.exampleCode}>
+              {`<ErrorMessage 
   title="Validation Error" 
   message="Please check your input and try again." 
 />`}
+            </div>
           </div>
-        </div>
 
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            Search Input
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Enhanced input with search functionality and clear button.
-          </p>
-          <div className={styles.exampleContainer}>
-            <SearchInput />
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              Search Input
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Enhanced input with search functionality and clear button.
+            </p>
+            <div className={styles.exampleContainer}>
+              <SearchInput />
+            </div>
+            <div className={styles.exampleCode}>{`<SearchInput />`}</div>
           </div>
-          <div className={styles.exampleCode}>{`<SearchInput />`}</div>
-        </div>
 
-        <div className={styles.componentExample}>
-          <Heading level="h3" className={styles.exampleTitle}>
-            View Mode Toggle
-          </Heading>
-          <p className={styles.exampleDescription}>
-            Switch between different view modes (table, grid) for data
-            presentation.
-          </p>
-          <div className={styles.exampleContainer}>
-            <ViewMode
-              value={viewMode}
-              onChange={(newViewMode: ViewModeType) => setViewMode(newViewMode)}
-            />
-          </div>
-          <div className={styles.exampleCode}>
-            {`<ViewMode
+          <div className={styles.componentExample}>
+            <Heading level="h3" className={styles.exampleTitle}>
+              View Mode Toggle
+            </Heading>
+            <p className={styles.exampleDescription}>
+              Switch between different view modes (table, grid) for data
+              presentation.
+            </p>
+            <div className={styles.exampleContainer}>
+              <ViewMode
+                value={viewMode}
+                onChange={(newViewMode: ViewModeType) =>
+                  setViewMode(newViewMode)
+                }
+              />
+            </div>
+            <div className={styles.exampleCode}>
+              {`<ViewMode
   value={viewMode}
   onChange={(mode) => setViewMode(mode)}
 />`}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Organism Components */}
-      <section className={styles.section}>
-        <Heading level="h2" className={styles.sectionTitle}>
-          Data Presentation
-        </Heading>
-        <p className={styles.sectionDescription}>
-          Complex components for displaying and organizing large amounts of
-          data.
-        </p>
+        {/* Organism Components */}
+        <section className={styles.section}>
+          <Heading level="h2" className={styles.sectionTitle}>
+            Data Presentation
+          </Heading>
+          <p className={styles.sectionDescription}>
+            Complex components for displaying and organizing large amounts of
+            data.
+          </p>
 
-        <div className={styles.componentShowcase}>
-          <div className={styles.showcaseItem}>
-            <div className={styles.showcaseTitle}>Character List View</div>
-            <p className={styles.showcaseDescription}>
-              Tabular display for detailed data with sorting and filtering
-              capabilities.
-            </p>
-            <CharacterListView characters={sampleCharacters} />
+          <div className={styles.componentShowcase}>
+            <div className={styles.showcaseItem}>
+              <div className={styles.showcaseTitle}>Character List View</div>
+              <p className={styles.showcaseDescription}>
+                Tabular display for detailed data with sorting and filtering
+                capabilities.
+              </p>
+              <CharacterListView characters={sampleCharacters} />
+            </div>
+
+            <div className={styles.showcaseItem}>
+              <div className={styles.showcaseTitle}>Character Grid View</div>
+              <p className={styles.showcaseDescription}>
+                Card-based layout for visual browsing with responsive grid
+                system.
+              </p>
+              <CharacterGridView characters={sampleCharacters} />
+            </div>
           </div>
-
-          <div className={styles.showcaseItem}>
-            <div className={styles.showcaseTitle}>Character Grid View</div>
-            <p className={styles.showcaseDescription}>
-              Card-based layout for visual browsing with responsive grid system.
-            </p>
-            <CharacterGridView characters={sampleCharacters} />
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
